@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mata Kuliah — Semester Ganjil 2024/2025</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                colors: { accent: '#3b6ff0', 'accent-light': '#dce8ff' },
+                fontFamily: { display: ['Sora','sans-serif'], body: ['DM Sans','sans-serif'] }
+            }}
+        }
+    </script>
+
+    <style>
+        * { font-family: 'DM Sans', sans-serif; }
+        h1,h2,h3 { font-family: 'Sora', sans-serif; }
+        .material-symbols-outlined { vertical-align: middle; font-size: 20px; }
+        .nav-link { position: relative; }
+        .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:#3b6ff0; transition:width 0.25s; }
+        .nav-link:hover::after, .nav-link.active::after { width:100%; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+        .fade-up { animation: fadeUp 0.5s ease both; }
+        .fade-up-1{animation-delay:.1s} .fade-up-2{animation-delay:.2s} .fade-up-3{animation-delay:.3s} .fade-up-4{animation-delay:.4s}
+        .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .card-hover:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(59,111,240,0.12); }
+        .level-bar { height: 7px; border-radius:999px; background:#e2e8f0; overflow:hidden; }
+        .level-fill { height:100%; border-radius:999px; }
+    </style>
+
+    <style>
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 leading-relaxed">
+
+<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100 shadow-sm">
+    <div class="max-w-5xl mx-auto px-6 flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+            <span class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white font-display font-extrabold text-xs tracking-tight leading-none">CV</span>
+            <span class="font-display font-bold text-slate-900 text-base tracking-tight hidden sm:block">Curriculum Vitae</span>
+        </a>
+        <!-- Desktop links — right aligned -->
+        <ul class="hidden md:flex items-center gap-8"><li><a href="index.html" class="nav-link text-slate-600 hover:text-accent transition-colors font-semibold text-sm">Beranda</a></li><li><a href="mata-kuliah.html" class="nav-link text-accent active font-semibold text-sm">Mata Kuliah</a></li></ul>
+        <!-- Mobile -->
+        <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors">
+            <span class="material-symbols-outlined text-slate-600">menu</span>
+        </button>
+    </div>
+    <!-- Mobile dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-100 px-6 py-4">
+        <ul class="flex flex-col gap-1"><li><a href="index.html" class="block py-2 text-slate-600 hover:text-accent transition-colors font-medium text-sm">Beranda</a></li><li><a href="mata-kuliah.html" class="block py-2 text-accent font-semibold font-medium text-sm">Mata Kuliah</a></li></ul>
+    </div>
+</nav>
+
+<main class="max-w-5xl mx-auto px-6 py-12 pb-20 space-y-12 fade-up">
+
+    <!-- Header -->
+    <div class="space-y-2">
+        <span class="inline-flex items-center gap-1.5 bg-accent-light text-accent text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
+            <span class="material-symbols-outlined" style="font-size:13px">menu_book</span>
+            Semester Ganjil 2024/2025 · Kelas B
+        </span>
+        <h1 class="text-4xl font-display font-extrabold text-slate-900 tracking-tight">Daftar Mata Kuliah</h1>
+        <p class="text-slate-500 text-sm max-w-lg">Klik salah satu kartu di bawah untuk melihat topik dan tingkat pemahaman tiap mata kuliah.</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm text-center">
+            <p class="text-3xl font-display font-extrabold text-accent">8</p>
+            <p class="text-xs text-slate-500 font-medium mt-1">Mata Kuliah</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm text-center">
+            <p class="text-3xl font-display font-extrabold text-accent">21</p>
+            <p class="text-xs text-slate-500 font-medium mt-1">Total SKS</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm text-center">
+            <p class="text-3xl font-display font-extrabold text-accent">7</p>
+            <p class="text-xs text-slate-500 font-medium mt-1">Dosen Pengajar</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 border border-slate-100 shadow-sm text-center">
+            <p class="text-3xl font-display font-extrabold text-accent">2024</p>
+            <p class="text-xs text-slate-500 font-medium mt-1">Tahun Akademik</p>
+        </div>
+    </div>
+
+    <!-- Hint banner -->
+    <div class="flex items-center gap-3 bg-accent-light border border-blue-200 rounded-xl px-5 py-3.5 text-sm text-accent font-medium">
+        <span class="material-symbols-outlined shrink-0">touch_app</span>
+        <span>Klik kartu mata kuliah untuk melihat topik yang dipelajari dan tingkat pemahaman secara detail.</span>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="card-grid">
+        
+        <a href="pengenalan-pemrograman.html" class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden flex flex-col">
+            <!-- Card top accent -->
+            <div class="h-1.5 w-full bg-gradient-to-r from-accent to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="p-6 flex flex-col gap-4 flex-1">
+                <!-- Icon + No -->
+                <div class="flex items-start justify-between">
+                    <div class="w-11 h-11 rounded-xl bg-blue-50 border-blue-200 text-blue-700 border flex items-center justify-center">
+                        <span class="material-symbols-outlined" style="font-size:22px">code</span>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400">WOB.0204.1.05</span>
+                </div>
+                <!-- Title + desc -->
+                <div class="flex-1">
+                    <h3 class="font-display font-bold text-slate-900 leading-snug mb-1.5">Pengenalan Pemrograman</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">HTML, CSS, PHP & MySQL — dasar pemrograman web.</p>
+                </div>
+                <!-- Footer row -->
+                <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                    <div class="flex items-center gap-1.5 text-xs text-slate-500">
+                        <span class="material-symbols-outlined" style="font-size:14px">person</span>
+                        <span>Primaadi Airlangga, M.IT.</span>
+                    </div>
+                    <span class="bg-accent-light text-accent text-xs font-bold px-2.5 py-1 rounded-full">3 SKS</span>
+                </div>
+                <!-- Hover CTA -->
+                <div class="flex items-center gap-1.5 text-accent text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity -mt-1">
+                    <span>Lihat Detail</span>
+                    <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
+                </div>
+            </div>
+        </a>
+        
+        <a href="struktur-data.html" class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden flex flex-col">
+            <!-- Card top accent -->
+            <div class="h-1.5 w-full bg-gradient-to-r from-accent to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="p-6 flex flex-col gap-4 flex-1">
+                <!-- Icon + No -->
+                <div class="flex items-start justify-between">
+                    <div class="w-11 h-11 rounded-xl bg-purple-50 border-purple-200 text-purple-700 border flex items-center justify-center">
+                        <span class="material-symbols-outlined" style="font-size:22px">account_tree</span>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400">WOB.0204.1.06</span>
+                </div>
+                <!-- Title + desc -->
+                <div class="flex-1">
+                    <h3 class="font-display font-bold text-slate-900 leading-snug mb-1.5">Struktur Data</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Array, Stack, Queue, Tree, Graph dan algoritma pencarian.</p>
+                </div>
+                <!-- Footer row -->
+                <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                    <div class="flex items-center gap-1.5 text-xs text-slate-500">
+                        <span class="material-symbols-outlined" style="font-size:14px">person</span>
+                        <span>Tholib Hariono, S.Kom., M.Kom.</span>
+                    </div>
+                    <span class="bg-accent-light text-accent text-xs font-bold px-2.5 py-1 rounded-full">3 SKS</span>
+                </div>
+                <!-- Hover CTA -->
+                <div class="flex items-center gap-1.5 text-accent text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity -mt-1">
+                    <span>Lihat Detail</span>
+                    <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
+                </div>
+            </div>
+        </a>
+        
+        <a href="kalkulus.html" class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden flex flex-col">
+            <!-- Card top accent -->
+            <div class="h-1.5 w-full bg-gradient-to-r from-accent to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="p-6 flex flex-col gap-4 flex-1">
+                <!-- Icon + No -->
+                <div class="flex items-start justify-between">
+                    <div class="w-11 h-11 rounded-xl bg-orange-50 border-orange-200 text-orange-700 border flex items-center justify-center">
+                        <span class="material-symbols-outlined" style="font-size:22px">calculate</span>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400">WOB.0204.1.08</span>
+                </div>
+                <!-- Title + desc -->
+                <div class="flex-1">
+                    <h3 class="font-display font-bold text-slate-900 leading-snug mb-1.5">Kalkulus</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Fungsi, limit, turunan, integral dan deret tak hingga.</p>
+                </div>
+                <!-- Footer row -->
+                <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                    <div class="flex items-center gap-1.5 text-xs text-slate-500">
+                        <span class="material-symbols-outlined" style="font-size:14px">person</span>
+                        <span>Dr. H. Nurul Yaqin, M.Sc.</span>
+                    </div>
+                    <span class="bg-accent-light text-accent text-xs font-bold px-2.5 py-1 rounded-full">3 SKS</span>
+                </div>
+                <!-- Hover CTA -->
+                <div class="flex items-center gap-1.5 text-accent text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity -mt-1">
+                    <span>Lihat Detail</span>
+                    <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
+                </div>
+            </div>
+        </a>
+        
+        <a href="praktikum-pengenalan-pemrograman.html" class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden flex flex-col">
+            <!-- Card top accent -->
+            <div class="h-1.5 w-full bg-gradient-to-r from-accent to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="p-6 flex flex-col gap-4 flex-1">
+                <!-- Icon + No -->
+                <div class="flex items-start justify-between">
+                    <div class="w-11 h-11 rounded-xl bg-green-50 border-green-200 text-green-700 border flex items-center justify-center">
+                        <span class="material-symbols-outlined" style="font-size:22px">terminal</span>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400">WOB.0204.1.05P</span>
+                </div>
+                <!-- Title + desc -->
+                <div class="flex-1">
+                    <h3 class="font-display font-bold text-slate-900 leading-snug mb-1.5">Praktikum Pengenalan Pemrograman</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Praktik langsung instalasi, HTML/CSS, PHP & koneksi database.</p>
+                </div>
+                <!-- Footer row -->
+                <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                    <div class="flex items-center gap-1.5 text-xs text-slate-500">
+                        <span class="material-symbols-outlined" style="font-size:14px">person</span>
+                        <span>Sujono, M.Kom</span>
+                    </div>
+                    <span class="bg-accent-light text-accent text-xs font-bold px-2.5 py-1 rounded-full">1 SKS</span>
+                </div>
+                <!-- Hover CTA -->
+                <div class="flex items-center gap-1.5 text-accent text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity -mt-1">
+                    <span>Lihat Detail</span>
+                    <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
+                </div>
+            </div>
+        </a>
+        
+        <a href="algoritma-pemrograman.html" class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden flex flex-col">
+            <!-- Card top accent -->
+            <div class="h-1.5 w-full bg-gradient-to-r from-accent to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="p-6 flex flex-col gap-4 flex-1">
+                <!-- Icon + No -->
+                <div class="flex items-start justify-between">
+                    <div class="w-11 h-11 rounded-xl bg-red-50 border-red-200 text-red-700 border flex items-center justify-center">
+                        <span class="material-symbols-outlined" style="font-size:22px">schema</span>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400">WOB.0204.1.01</span>
+                </div>
+                <!-- Title + desc -->
+                <div class="flex-1">
+                    <h3 class="font-display font-bold text-slate-900 leading-snug mb-1.5">Algoritma Pemrograman</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Pseudocode, sorting, searching, rekursi dan struktur data.</p>
+                </div>
+                <!-- Footer row -->
+                <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                    <div class="flex items-center gap-1.5 text-xs text-slate-500">
+                        <span class="material-symbols-outlined" style="font-size:14px">person</span>
+                        <span>Ponari Isno, S.Kom.</span>
+                    </div>
+                    <span class="bg-accent-light text-accent text-xs font-bold px-2.5 py-1 rounded-full">3 SKS</span>
+                </div>
+                <!-- Hover CTA -->
+                <div class="flex items-center gap-1.5 text-accent text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity -mt-1">
+                    <span>Lihat Detail</span>
+                    <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
+                </div>
+            </div>
+        </a>
+        
+        <a href="imk.html" class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden flex flex-col">
+            <!-- Card top accent -->
+            <div class="h-1.5 w-full bg-gradient-to-r from-accent to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="p-6 flex flex-col gap-4 flex-1">
+                <!-- Icon + No -->
+                <div class="flex items-start justify-between">
+                    <div class="w-11 h-11 rounded-xl bg-pink-50 border-pink-200 text-pink-700 border flex items-center justify-center">
+                        <span class="material-symbols-outlined" style="font-size:22px">devices</span>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400">WOB.0204.1.17</span>
+                </div>
+                <!-- Title + desc -->
+                <div class="flex-1">
+                    <h3 class="font-display font-bold text-slate-900 leading-snug mb-1.5">Interaksi Manusia dan Komputer</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Prinsip UI/UX, desain antarmuka, usability dan prototipe.</p>
+                </div>
+                <!-- Footer row -->
+                <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                    <div class="flex items-center gap-1.5 text-xs text-slate-500">
+                        <span class="material-symbols-outlined" style="font-size:14px">person</span>
+                        <span>Munawarah, S.Kom., M.Si.</span>
+                    </div>
+                    <span class="bg-accent-light text-accent text-xs font-bold px-2.5 py-1 rounded-full">3 SKS</span>
+                </div>
+                <!-- Hover CTA -->
+                <div class="flex items-center gap-1.5 text-accent text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity -mt-1">
+                    <span>Lihat Detail</span>
+                    <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
+                </div>
+            </div>
+        </a>
+        
+        <a href="sistem-operasi.html" class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden flex flex-col">
+            <!-- Card top accent -->
+            <div class="h-1.5 w-full bg-gradient-to-r from-accent to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="p-6 flex flex-col gap-4 flex-1">
+                <!-- Icon + No -->
+                <div class="flex items-start justify-between">
+                    <div class="w-11 h-11 rounded-xl bg-slate-100 border-slate-300 text-slate-700 border flex items-center justify-center">
+                        <span class="material-symbols-outlined" style="font-size:22px">memory</span>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400">WOB.0204.1.04</span>
+                </div>
+                <!-- Title + desc -->
+                <div class="flex-1">
+                    <h3 class="font-display font-bold text-slate-900 leading-snug mb-1.5">Sistem Operasi</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Arsitektur OS, manajemen proses, memori, file dan deadlock.</p>
+                </div>
+                <!-- Footer row -->
+                <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                    <div class="flex items-center gap-1.5 text-xs text-slate-500">
+                        <span class="material-symbols-outlined" style="font-size:14px">person</span>
+                        <span>Sujono, M.Kom</span>
+                    </div>
+                    <span class="bg-accent-light text-accent text-xs font-bold px-2.5 py-1 rounded-full">3 SKS</span>
+                </div>
+                <!-- Hover CTA -->
+                <div class="flex items-center gap-1.5 text-accent text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity -mt-1">
+                    <span>Lihat Detail</span>
+                    <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
+                </div>
+            </div>
+        </a>
+        
+        <a href="pendidikan-agama-islam.html" class="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden flex flex-col">
+            <!-- Card top accent -->
+            <div class="h-1.5 w-full bg-gradient-to-r from-accent to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="p-6 flex flex-col gap-4 flex-1">
+                <!-- Icon + No -->
+                <div class="flex items-start justify-between">
+                    <div class="w-11 h-11 rounded-xl bg-teal-50 border-teal-200 text-teal-700 border flex items-center justify-center">
+                        <span class="material-symbols-outlined" style="font-size:22px">mosque</span>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400">UOB.0204.1.06</span>
+                </div>
+                <!-- Title + desc -->
+                <div class="flex-1">
+                    <h3 class="font-display font-bold text-slate-900 leading-snug mb-1.5">Pendidikan Agama Islam</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Dasar Islam, rukun, shalat, etika dan moral dalam Islam.</p>
+                </div>
+                <!-- Footer row -->
+                <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                    <div class="flex items-center gap-1.5 text-xs text-slate-500">
+                        <span class="material-symbols-outlined" style="font-size:14px">person</span>
+                        <span>Hilyah Ashoumi, M.Pd.I.</span>
+                    </div>
+                    <span class="bg-accent-light text-accent text-xs font-bold px-2.5 py-1 rounded-full">2 SKS</span>
+                </div>
+                <!-- Hover CTA -->
+                <div class="flex items-center gap-1.5 text-accent text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity -mt-1">
+                    <span>Lihat Detail</span>
+                    <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    <!-- Table (reference) -->
+    <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <div class="px-6 py-4 border-b border-slate-100 flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent">table_view</span>
+            <span class="font-display font-bold text-slate-800">Rekap Jadwal</span>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left">
+                <thead>
+                    <tr class="bg-slate-900 text-white">
+                        <th class="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider">No</th>
+                        <th class="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider">Kode</th>
+                        <th class="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider">Mata Kuliah</th>
+                        <th class="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-center">SKS</th>
+                        <th class="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider">Jadwal</th>
+                        <th class="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider">Dosen</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-50">
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-5 py-3.5 text-slate-400 font-medium text-sm">1</td>
+            <td class="px-5 py-3.5 font-mono text-xs text-slate-400">WOB.0204.1.05</td>
+            <td class="px-5 py-3.5 font-semibold text-slate-800 text-sm">
+                <a href="pengenalan-pemrograman.html" class="hover:text-accent transition-colors flex items-center gap-1">
+                    Pengenalan Pemrograman <span class="material-symbols-outlined text-slate-300 group-hover:text-accent" style="font-size:13px">arrow_forward</span>
+                </a>
+            </td>
+            <td class="px-5 py-3.5 text-center"><span class="bg-accent-light text-accent text-xs font-bold px-2 py-0.5 rounded-full">3</span></td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Ahad, I (07:30–09:00)</td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Primaadi Airlangga, M.IT.</td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-5 py-3.5 text-slate-400 font-medium text-sm">2</td>
+            <td class="px-5 py-3.5 font-mono text-xs text-slate-400">WOB.0204.1.06</td>
+            <td class="px-5 py-3.5 font-semibold text-slate-800 text-sm">
+                <a href="struktur-data.html" class="hover:text-accent transition-colors flex items-center gap-1">
+                    Struktur Data <span class="material-symbols-outlined text-slate-300 group-hover:text-accent" style="font-size:13px">arrow_forward</span>
+                </a>
+            </td>
+            <td class="px-5 py-3.5 text-center"><span class="bg-accent-light text-accent text-xs font-bold px-2 py-0.5 rounded-full">3</span></td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Ahad, II (09:00–10:30)</td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Tholib Hariono, S.Kom., M.Kom.</td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-5 py-3.5 text-slate-400 font-medium text-sm">3</td>
+            <td class="px-5 py-3.5 font-mono text-xs text-slate-400">WOB.0204.1.08</td>
+            <td class="px-5 py-3.5 font-semibold text-slate-800 text-sm">
+                <a href="kalkulus.html" class="hover:text-accent transition-colors flex items-center gap-1">
+                    Kalkulus <span class="material-symbols-outlined text-slate-300 group-hover:text-accent" style="font-size:13px">arrow_forward</span>
+                </a>
+            </td>
+            <td class="px-5 py-3.5 text-center"><span class="bg-accent-light text-accent text-xs font-bold px-2 py-0.5 rounded-full">3</span></td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Ahad, III (10:30–12:00)</td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Dr. H. Nurul Yaqin, M.Sc.</td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-5 py-3.5 text-slate-400 font-medium text-sm">4</td>
+            <td class="px-5 py-3.5 font-mono text-xs text-slate-400">WOB.0204.1.05P</td>
+            <td class="px-5 py-3.5 font-semibold text-slate-800 text-sm">
+                <a href="praktikum-pengenalan-pemrograman.html" class="hover:text-accent transition-colors flex items-center gap-1">
+                    Praktikum Pengenalan Pemrograman <span class="material-symbols-outlined text-slate-300 group-hover:text-accent" style="font-size:13px">arrow_forward</span>
+                </a>
+            </td>
+            <td class="px-5 py-3.5 text-center"><span class="bg-accent-light text-accent text-xs font-bold px-2 py-0.5 rounded-full">1</span></td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Sabtu, II (09:00–10:30)</td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Sujono, M.Kom</td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-5 py-3.5 text-slate-400 font-medium text-sm">5</td>
+            <td class="px-5 py-3.5 font-mono text-xs text-slate-400">WOB.0204.1.01</td>
+            <td class="px-5 py-3.5 font-semibold text-slate-800 text-sm">
+                <a href="algoritma-pemrograman.html" class="hover:text-accent transition-colors flex items-center gap-1">
+                    Algoritma Pemrograman <span class="material-symbols-outlined text-slate-300 group-hover:text-accent" style="font-size:13px">arrow_forward</span>
+                </a>
+            </td>
+            <td class="px-5 py-3.5 text-center"><span class="bg-accent-light text-accent text-xs font-bold px-2 py-0.5 rounded-full">3</span></td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Sabtu, III (10:30–12:00)</td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Ponari Isno, S.Kom.</td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-5 py-3.5 text-slate-400 font-medium text-sm">6</td>
+            <td class="px-5 py-3.5 font-mono text-xs text-slate-400">WOB.0204.1.17</td>
+            <td class="px-5 py-3.5 font-semibold text-slate-800 text-sm">
+                <a href="imk.html" class="hover:text-accent transition-colors flex items-center gap-1">
+                    Interaksi Manusia dan Komputer <span class="material-symbols-outlined text-slate-300 group-hover:text-accent" style="font-size:13px">arrow_forward</span>
+                </a>
+            </td>
+            <td class="px-5 py-3.5 text-center"><span class="bg-accent-light text-accent text-xs font-bold px-2 py-0.5 rounded-full">3</span></td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Senin, I (07:30–09:00)</td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Munawarah, S.Kom., M.Si.</td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-5 py-3.5 text-slate-400 font-medium text-sm">7</td>
+            <td class="px-5 py-3.5 font-mono text-xs text-slate-400">WOB.0204.1.04</td>
+            <td class="px-5 py-3.5 font-semibold text-slate-800 text-sm">
+                <a href="sistem-operasi.html" class="hover:text-accent transition-colors flex items-center gap-1">
+                    Sistem Operasi <span class="material-symbols-outlined text-slate-300 group-hover:text-accent" style="font-size:13px">arrow_forward</span>
+                </a>
+            </td>
+            <td class="px-5 py-3.5 text-center"><span class="bg-accent-light text-accent text-xs font-bold px-2 py-0.5 rounded-full">3</span></td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Senin, II (09:00–10:30)</td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Sujono, M.Kom</td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-5 py-3.5 text-slate-400 font-medium text-sm">8</td>
+            <td class="px-5 py-3.5 font-mono text-xs text-slate-400">UOB.0204.1.06</td>
+            <td class="px-5 py-3.5 font-semibold text-slate-800 text-sm">
+                <a href="pendidikan-agama-islam.html" class="hover:text-accent transition-colors flex items-center gap-1">
+                    Pendidikan Agama Islam <span class="material-symbols-outlined text-slate-300 group-hover:text-accent" style="font-size:13px">arrow_forward</span>
+                </a>
+            </td>
+            <td class="px-5 py-3.5 text-center"><span class="bg-accent-light text-accent text-xs font-bold px-2 py-0.5 rounded-full">2</span></td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Senin, III (10:30–12:00)</td>
+            <td class="px-5 py-3.5 text-slate-500 text-sm">Hilyah Ashoumi, M.Pd.I.</td>
+        </tr>
+        </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-white border-t border-slate-100 py-8 mt-8">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-3">
+        <p class="text-slate-400 text-sm">© 2026 — Informasi Mahasiswa Universitas KH. Wahab Hasbullah</p>
+        <p class="text-slate-400 text-sm">Hafidz Fatah Kamaluddin Jabbar · 2402041256</p>
+    </div>
+</footer>
+<script>
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    if(btn && menu) btn.addEventListener('click',()=>menu.classList.toggle('hidden'));
+</script>
+</body></html>
